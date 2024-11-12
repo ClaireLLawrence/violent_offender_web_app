@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Violent Offender Risk Level Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+
+  <body>
+    <div class="grid">
+
+      <div class="box">
+
+        <p>Violent Offender Risk Level Prediction</p>
+        <p>Enter yes or no for each of the following detainee conditions:</p>
+        
+        <form action="{{ url_for('predict')}}" method="post">
+        	  <label for="Mental health issues">Mental health issues:</label>
+          <select name="Mental health issues" id="Mental health issues">
+            <option value=0>No</option>
+            <option value=1>Yes</option>
+        	  </select>
+        	  <br><br>
+        	  <label for="Alcohol">Alcohol:</label>
+          <select name="Alcohol" id="Alcohol">
+            <option value=0>No</option>
+            <option value=1>Yes</option>
+        	  </select>
+        	  <br><br>
+        	  <label for="Drugs">Drugs:</label>
+          <select name="Drugs" id="Drugs">
+            <option value=0>No</option>
+            <option value=1>Yes</option>
+        	  </select>
+        	  <br><br>
+        	  <label for="Has a fixed abode">Has a fixed abode:</label>
+          <select name="Has a fixed abode" id="Has a fixed abode">
+            <option value=0>No</option>
+            <option value=1>Yes</option>
+        	  </select>
+        	  <br><br>
+        	  <label for="Is repeat offender">Is repeat offender:</label>
+          <select name="Is repeat offender" id="Is repeat offender">
+            <option value=0>No</option>
+            <option value=1>Yes</option>
+        	  </select>
+        	  <br><br>
+          <button type="submit" class="btn">Click to Predict Risk Level</button>
+        </form>
+
+        <p>{{ prediction_text }}</p>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
